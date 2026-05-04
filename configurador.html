@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configurar Sacola — Art Sacolas</title>
+  <title>Configurar Sacola — Art &amp; Sacolas</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
   <header class="header config-header">
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-text">Art<strong>Sacolas</strong></span>
+        <span class="logo-text">Art &amp; <strong>Sacolas</strong></span>
       </a>
       <div class="breadcrumb">
         <a href="index.html">Início</a>
@@ -29,76 +29,89 @@
 
       <!-- STEPPER -->
       <div class="stepper" id="stepper">
-        <div class="stepper-item active" data-step="1">
-          <div class="stepper-dot"><span>1</span></div>
-        </div>
-        <div class="stepper-item" data-step="2">
-          <div class="stepper-dot"><span>2</span></div>
-        </div>
-        <div class="stepper-item" data-step="3">
-          <div class="stepper-dot"><span>3</span></div>
-        </div>
-        <div class="stepper-item" data-step="4">
-          <div class="stepper-dot"><span>4</span></div>
-        </div>
-        <div class="stepper-item" data-step="5">
-          <div class="stepper-dot"><span>5</span></div>
-        </div>
+        <div class="stepper-item active" data-step="1"><div class="stepper-dot"><span>1</span></div></div>
+        <div class="stepper-item" data-step="2"><div class="stepper-dot"><span>2</span></div></div>
+        <div class="stepper-item" data-step="3"><div class="stepper-dot"><span>3</span></div></div>
+        <div class="stepper-item" data-step="4"><div class="stepper-dot"><span>4</span></div></div>
+        <div class="stepper-item" data-step="5"><div class="stepper-dot"><span>5</span></div></div>
       </div>
 
       <!-- ===== PASSO 1: TIPO ===== -->
       <div class="step-content active" id="step-1">
         <div class="step-label">Passo 1 de 5</div>
-        <h2 class="step-title">Escolha o tipo da sua sacola</h2>
-        <p class="step-subtitle">Selecione o material que melhor representa a sua marca</p>
+        <h2 class="step-title">Qual tipo de sacola você precisa?</h2>
+        <p class="step-subtitle">Cada modelo tem uma função e um segmento ideal</p>
 
         <div id="error-1" class="step-error">⚠️ Escolha um tipo de sacola para continuar.</div>
 
-        <div class="type-cards">
-          <div class="type-card" data-value="kraft" onclick="selectOption(this, 'tipo')">
-            <div class="type-card-visual kraft">
-              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
-                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#8B7355" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <div class="type-cards-4">
+
+          <div class="type-card" data-value="camiseta" onclick="selectTipo(this)">
+            <div class="type-card-visual" style="background: linear-gradient(135deg, #EEF2FF, #DBEAFE); height:130px;">
+              <svg width="65" height="80" viewBox="0 0 300 370" fill="none">
+                <rect x="25" y="15" width="90" height="78" rx="5 5 0 0" fill="#5B9BD5"/>
+                <rect x="185" y="15" width="90" height="78" rx="5 5 0 0" fill="#5B9BD5"/>
+                <rect x="115" y="15" width="70" height="75" rx="4" fill="white" opacity="0.8"/>
+                <rect x="25" y="90" width="250" height="255" fill="#5B9BD5" rx="0 0 8 8"/>
+                <rect x="25" y="318" width="250" height="27" fill="#3A7DC9"/>
+                <rect x="70" y="158" width="160" height="95" rx="4" fill="white" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Alça Camiseta</div>
+              <div class="type-card-desc">Roupas · Calçados · Boutiques</div>
+            </div>
+          </div>
+
+          <div class="type-card" data-value="vazada" onclick="selectTipo(this)">
+            <div class="type-card-visual" style="background: linear-gradient(135deg, #F0FDF4, #DCFCE7); height:130px;">
+              <svg width="65" height="80" viewBox="0 0 300 370" fill="none">
+                <rect x="25" y="40" width="250" height="305" rx="8" fill="#34A85A"/>
+                <ellipse cx="150" cy="80" rx="65" ry="38" fill="white"/>
+                <rect x="25" y="318" width="250" height="27" fill="#228B45"/>
+                <rect x="70" y="158" width="160" height="95" rx="4" fill="white" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Alça Vazada</div>
+              <div class="type-card-desc">Farmácias · Papelarias · Comércio</div>
+            </div>
+          </div>
+
+          <div class="type-card" data-value="fita" onclick="selectTipo(this)">
+            <div class="type-card-visual" style="background: linear-gradient(135deg, #FDF4FF, #FAE8FF); height:130px;">
+              <svg width="65" height="80" viewBox="0 0 300 370" fill="none">
+                <line x1="100" y1="15" x2="100" y2="90" stroke="#7C3AED" stroke-width="12" stroke-linecap="round"/>
+                <line x1="200" y1="15" x2="200" y2="90" stroke="#7C3AED" stroke-width="12" stroke-linecap="round"/>
+                <rect x="25" y="90" width="250" height="255" rx="8" fill="#9D6FE8"/>
+                <rect x="25" y="318" width="250" height="27" fill="#7C3AED"/>
+                <rect x="70" y="158" width="160" height="95" rx="4" fill="white" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Alça Fita</div>
+              <div class="type-card-desc">Óticas · Joias · Presentes</div>
+            </div>
+          </div>
+
+          <div class="type-card" data-value="kraft" onclick="selectTipo(this)">
+            <div class="type-card-visual kraft" style="height:130px;">
+              <svg width="65" height="80" viewBox="0 0 300 370" fill="none">
+                <path d="M95,40 Q95,90 90,90" stroke="#8B5E3C" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <path d="M205,40 Q205,90 210,90" stroke="#8B5E3C" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <ellipse cx="95" cy="40" rx="12" ry="12" fill="none" stroke="#8B5E3C" stroke-width="6"/>
+                <ellipse cx="205" cy="40" rx="12" ry="12" fill="none" stroke="#8B5E3C" stroke-width="6"/>
                 <rect x="25" y="90" width="250" height="255" rx="8" fill="#C8A96E"/>
-                <rect x="25" y="320" width="250" height="25" fill="#A88750"/>
-                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" opacity="0.6"/>
+                <rect x="25" y="318" width="250" height="27" fill="#A88750"/>
+                <rect x="70" y="158" width="160" height="95" rx="4" fill="white" opacity="0.6"/>
               </svg>
             </div>
             <div class="type-card-info">
-              <div class="type-card-name">Kraft Natural</div>
-              <div class="type-card-desc">Resistente · Sustentável</div>
+              <div class="type-card-name">Papel Kraft</div>
+              <div class="type-card-desc">Boutiques · Cosméticos · Premium</div>
             </div>
           </div>
 
-          <div class="type-card" data-value="branca" onclick="selectOption(this, 'tipo')">
-            <div class="type-card-visual branca">
-              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
-                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#BDBDBD" stroke-width="13" fill="none" stroke-linecap="round"/>
-                <rect x="25" y="90" width="250" height="255" rx="8" fill="#F0F0F0"/>
-                <rect x="25" y="320" width="250" height="25" fill="#D5D5D5"/>
-                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" stroke="#E8E8E8" stroke-width="1"/>
-              </svg>
-            </div>
-            <div class="type-card-info">
-              <div class="type-card-name">Branca Premium</div>
-              <div class="type-card-desc">Clean · Elegante</div>
-            </div>
-          </div>
-
-          <div class="type-card" data-value="premium" onclick="selectOption(this, 'tipo')">
-            <div class="type-card-visual premium">
-              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
-                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#546E7A" stroke-width="13" fill="none" stroke-linecap="round"/>
-                <rect x="25" y="90" width="250" height="255" rx="8" fill="#2C3E50"/>
-                <rect x="25" y="320" width="250" height="25" fill="#1a252f"/>
-                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" opacity="0.12"/>
-              </svg>
-            </div>
-            <div class="type-card-info">
-              <div class="type-card-name">Linha Premium</div>
-              <div class="type-card-desc">Sofisticada · Impacta</div>
-            </div>
-          </div>
         </div>
 
         <div class="step-nav">
@@ -112,22 +125,22 @@
       <div class="step-content" id="step-2">
         <div class="step-label">Passo 2 de 5</div>
         <h2 class="step-title">Qual tamanho você precisa?</h2>
-        <p class="step-subtitle">A sacola certa para o produto da sua loja</p>
+        <p class="step-subtitle" id="tamanho-hint">Selecione o tamanho mais adequado para o seu produto</p>
 
         <div id="error-2" class="step-error">⚠️ Escolha um tamanho para continuar.</div>
 
         <div class="size-options">
-          <div class="option-card" data-value="pequena" onclick="selectOption(this, 'tamanho')">
-            <div class="option-label">Pequena</div>
-            <div class="option-detail">aprox. 22 × 30 cm</div>
+          <div class="option-card" data-value="pequeno" onclick="selectOption(this, 'tamanho')">
+            <div class="option-label">Pequeno</div>
+            <div class="option-detail" id="size-p">—</div>
           </div>
-          <div class="option-card" data-value="media" onclick="selectOption(this, 'tamanho')">
-            <div class="option-label">Média</div>
-            <div class="option-detail">aprox. 30 × 40 cm</div>
+          <div class="option-card" data-value="medio" onclick="selectOption(this, 'tamanho')">
+            <div class="option-label">Médio</div>
+            <div class="option-detail" id="size-m">—</div>
           </div>
           <div class="option-card" data-value="grande" onclick="selectOption(this, 'tamanho')">
             <div class="option-label">Grande</div>
-            <div class="option-detail">aprox. 40 × 50 cm</div>
+            <div class="option-detail" id="size-g">—</div>
           </div>
         </div>
 
@@ -143,7 +156,7 @@
       <div class="step-content" id="step-3">
         <div class="step-label">Passo 3 de 5</div>
         <h2 class="step-title">Quantas sacolas você precisa?</h2>
-        <p class="step-subtitle">Quanto mais você pede, melhor o preço por unidade</p>
+        <p class="step-subtitle">Pedido mínimo: 250 unidades. Quanto mais, melhor o preço por unidade.</p>
 
         <div id="error-3" class="step-error">⚠️ Escolha uma quantidade para continuar.</div>
 
@@ -176,7 +189,7 @@
       <div class="step-content" id="step-4">
         <div class="step-label">Passo 4 de 5</div>
         <h2 class="step-title">Envie sua logo para visualizar na sacola</h2>
-        <p class="step-subtitle">Veja como vai ficar antes de fechar o pedido</p>
+        <p class="step-subtitle">Veja como vai ficar antes de fechar o pedido. Arte final montada gratuitamente pela nossa equipe.</p>
 
         <div class="upload-area" id="upload-area"
              onclick="triggerUpload()"
@@ -184,13 +197,13 @@
              ondrop="onDrop(event)"
              ondragleave="onDragLeave()">
           <input type="file" class="upload-input" id="logo-input"
-                 accept=".png,.jpg,.jpeg,.svg,.pdf"
+                 accept=".png,.jpg,.jpeg,.svg,.ai,.pdf,.eps,.cdr"
                  onchange="onFileSelect(event)">
           <div id="upload-idle">
             <div class="upload-icon">📁</div>
             <div class="upload-title">Arraste sua logo aqui ou clique para selecionar</div>
-            <div class="upload-desc">Sua logo será aplicada na prévia da sacola ao lado</div>
-            <div class="upload-formats">Aceita: PNG · JPG · SVG · PDF</div>
+            <div class="upload-desc">Ela aparece aplicada na sacola ao lado</div>
+            <div class="upload-formats">Aceita: AI · CDR · EPS · PDF · PNG · JPG · SVG</div>
           </div>
           <div id="upload-done" style="display:none;">
             <div class="upload-icon">✅</div>
@@ -201,7 +214,7 @@
 
         <label class="skip-logo" id="skip-label">
           <input type="checkbox" id="skip-check" onchange="onSkipLogo(this)">
-          <span>Não tenho logo agora — continuar assim mesmo</span>
+          <span>Não tenho logo agora — a equipe me ajuda depois</span>
         </label>
 
         <div class="step-nav">
@@ -216,33 +229,29 @@
       <div class="step-content" id="step-5">
         <div class="step-label">Passo 5 de 5</div>
         <h2 class="step-title">Veja como sua sacola vai ficar</h2>
-        <p class="step-subtitle">Revise o pedido e finalize pelo WhatsApp</p>
+        <p class="step-subtitle">Revise o pedido e finalize pelo WhatsApp para confirmar o orçamento exato.</p>
 
         <div class="preview-summary">
           <div class="preview-summary-label">Resumo do pedido</div>
-          <div class="preview-row">
-            <span>Tipo de sacola</span>
-            <span id="sum-tipo">—</span>
-          </div>
-          <div class="preview-row">
-            <span>Tamanho</span>
-            <span id="sum-tamanho">—</span>
-          </div>
-          <div class="preview-row">
-            <span>Quantidade</span>
-            <span id="sum-quantidade">—</span>
-          </div>
+          <div class="preview-row"><span>Tipo de sacola</span><span id="sum-tipo">—</span></div>
+          <div class="preview-row"><span>Tamanho</span><span id="sum-tamanho">—</span></div>
+          <div class="preview-row"><span>Quantidade</span><span id="sum-quantidade">—</span></div>
+          <div class="preview-row"><span>Arte / Logo</span><span id="sum-logo">—</span></div>
           <div class="preview-total-row">
-            <span class="preview-total-label">Valor estimado</span>
-            <span class="preview-total-value" id="sum-total">R$ —</span>
+            <span class="preview-total-label">Estimativa de valor</span>
+            <span class="preview-total-value" id="sum-total">—</span>
           </div>
         </div>
+
+        <p style="font-size:0.8125rem; color:var(--text-light); margin-bottom:16px; margin-top:-8px;">
+          * Valores orientativos de mercado. O orçamento exato é confirmado no WhatsApp em até 1 hora.
+        </p>
 
         <div class="delivery-box">
           <span class="delivery-box-icon">🗓️</span>
           <div class="delivery-box-text">
-            <strong>Prazo de entrega: 15 a 20 dias úteis</strong>
-            Após confirmação do pedido e envio da arte final
+            <strong>Prazo: <span id="sum-prazo">10 a 20 dias úteis</span></strong>
+            Após aprovação da arte e confirmação do pagamento
           </div>
         </div>
 
@@ -258,56 +267,65 @@
 
     </div><!-- /config-left -->
 
-    <!-- ===== PAINEL DIREITO (PREVIEW) ===== -->
+    <!-- ===== PAINEL DIREITO ===== -->
     <div class="config-right">
       <div class="panel-label">Prévia da sua sacola</div>
 
-      <!-- SVG DINÂMICO DA SACOLA -->
       <div class="bag-preview-wrap">
         <svg class="bag-preview-svg" id="bag-svg" viewBox="0 0 300 370" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="svg-handles" d="M90,90 Q90,45 150,45 Q210,45 210,90"
-                stroke="#D1D5DB" stroke-width="13" fill="none" stroke-linecap="round"/>
+          <!-- Handles - mudam conforme o tipo -->
+          <g id="handles-arch">
+            <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#D1D5DB" stroke-width="13" fill="none" stroke-linecap="round"/>
+          </g>
+          <g id="handles-camiseta" style="display:none;">
+            <rect x="25" y="15" width="88" height="76" rx="5 5 0 0" fill="#E5E7EB"/>
+            <rect x="187" y="15" width="88" height="76" rx="5 5 0 0" fill="#E5E7EB"/>
+            <rect x="113" y="15" width="74" height="73" rx="4" fill="white" opacity="0.9"/>
+          </g>
+          <g id="handles-vazada" style="display:none;">
+            <ellipse cx="150" cy="72" rx="65" ry="35" fill="white"/>
+            <ellipse cx="150" cy="72" rx="65" ry="35" fill="none" stroke="#E5E7EB" stroke-width="10"/>
+          </g>
+          <g id="handles-fita" style="display:none;">
+            <line x1="100" y1="10" x2="100" y2="90" stroke="#D1D5DB" stroke-width="10" stroke-linecap="round"/>
+            <line x1="200" y1="10" x2="200" y2="90" stroke="#D1D5DB" stroke-width="10" stroke-linecap="round"/>
+          </g>
+          <g id="handles-kraft" style="display:none;">
+            <path d="M95,35 Q95,90 90,90" stroke="#D1D5DB" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M205,35 Q205,90 210,90" stroke="#D1D5DB" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <ellipse cx="95" cy="35" rx="12" ry="12" fill="none" stroke="#D1D5DB" stroke-width="6"/>
+            <ellipse cx="205" cy="35" rx="12" ry="12" fill="none" stroke="#D1D5DB" stroke-width="6"/>
+          </g>
+          <!-- Bag body -->
           <rect id="svg-body" x="25" y="90" width="250" height="255" rx="8" fill="#E5E7EB"/>
           <rect id="svg-top" x="25" y="90" width="250" height="22" fill="#D1D5DB"/>
           <rect id="svg-bottom" x="25" y="320" width="250" height="25" fill="#D1D5DB"/>
-          <rect id="svg-shadow-l" x="25" y="90" width="20" height="255" fill="black" opacity="0.04"/>
-          <rect id="svg-shadow-r" x="255" y="90" width="20" height="255" fill="black" opacity="0.04"/>
           <!-- Logo area -->
           <rect id="svg-logo-bg" x="70" y="158" width="160" height="110" rx="5" fill="white" opacity="0.5"/>
           <image id="svg-logo-img" x="78" y="163" width="144" height="100" style="display:none;" preserveAspectRatio="xMidYMid meet"/>
           <text id="svg-logo-text" x="150" y="218" text-anchor="middle" fill="#9CA3AF" font-size="11" font-family="system-ui, sans-serif">SUA LOGO AQUI</text>
-          <!-- Empty hint -->
-          <text id="svg-hint" x="150" y="305" text-anchor="middle" fill="#D1D5DB" font-size="10" font-family="system-ui, sans-serif">← configure ao lado</text>
+          <text id="svg-hint" x="150" y="308" text-anchor="middle" fill="#D1D5DB" font-size="10" font-family="system-ui, sans-serif">← configure ao lado</text>
         </svg>
       </div>
 
       <!-- DETALHES -->
       <div class="panel-details" id="panel-details" style="display:none;">
-        <div class="panel-detail-row">
-          <span class="panel-detail-key">Tipo</span>
-          <span class="panel-detail-val" id="detail-tipo">—</span>
-        </div>
-        <div class="panel-detail-row">
-          <span class="panel-detail-key">Tamanho</span>
-          <span class="panel-detail-val" id="detail-tamanho">—</span>
-        </div>
-        <div class="panel-detail-row">
-          <span class="panel-detail-key">Quantidade</span>
-          <span class="panel-detail-val" id="detail-qtd">—</span>
-        </div>
+        <div class="panel-detail-row"><span class="panel-detail-key">Tipo</span><span class="panel-detail-val" id="detail-tipo">—</span></div>
+        <div class="panel-detail-row"><span class="panel-detail-key">Tamanho</span><span class="panel-detail-val" id="detail-tamanho">—</span></div>
+        <div class="panel-detail-row"><span class="panel-detail-key">Quantidade</span><span class="panel-detail-val" id="detail-qtd">—</span></div>
       </div>
 
       <!-- PREÇO -->
       <div class="price-box">
-        <div class="price-box-label">Valor estimado</div>
+        <div class="price-box-label">Estimativa de valor</div>
         <div class="price-box-value" id="price-value">—</div>
-        <div class="price-box-note">*indicativo · sujeito a confirmação</div>
+        <div class="price-box-note">* confirmado no WhatsApp em até 1h</div>
       </div>
 
-      <!-- PRAZO (sempre visível) -->
+      <!-- PRAZO -->
       <div class="deadline-box">
         <span class="deadline-icon">🗓️</span>
-        <span class="deadline-text">Prazo: <strong>15 a 20 dias úteis</strong></span>
+        <span class="deadline-text" id="deadline-text">Prazo: <strong>10 a 20 dias úteis</strong></span>
       </div>
     </div>
 
@@ -315,44 +333,75 @@
 
   <script>
   // ============================================
-  //  ART SACOLAS — Lógica do Configurador
+  //  ART & SACOLAS — Configurador
   // ============================================
 
-  // Estado global
-  const S = {
-    step: 1,
-    tipo: null,
-    tamanho: null,
-    quantidade: null,
-    logoUrl: null,
-    logoName: null,
-    skipLogo: false
-  };
+  const S = { step:1, tipo:null, tamanho:null, quantidade:null, logoUrl:null, logoName:null, skipLogo:false };
 
-  // ⚠️ Substituir pelo número real do Olívio (formato: 55 + DDD + número)
-  // Exemplo: WhatsApp (11) 99999-9999 → '5511999999999'
+  // ⚠️ Substituir pelos números reais antes de publicar
+  // Formato: 55 + DDD + número (sem espaços ou traços)
+  // Exemplo: (44) 9 9999-9999 → '5544999999999'
   const WHATSAPP = '5500000000000';
 
-  // Tabela de preços orientativa — confirmar com Olívio antes de publicar
-  const PRICES = {
-    base: { pequena: 8.50, media: 10.50, grande: 13.50 },
-    mult: { kraft: 1.0, branca: 1.2, premium: 1.5 },
-    desc: { 250: 0, 500: 0.12, 1000: 0.22 }
+  // Tamanhos reais por tipo de sacola (fonte: dados_site_sacolas.md)
+  const TAMANHOS = {
+    camiseta: { pequeno:'30 × 40 cm', medio:'45 × 60 cm', grande:'60 × 80 cm' },
+    vazada:   { pequeno:'20 × 30 cm', medio:'30 × 40 cm', grande:'40 × 50 cm' },
+    fita:     { pequeno:'27 × 40 cm', medio:'30 × 45 cm', grande:'40 × 50 cm' },
+    kraft:    { pequeno:'18 × 30 cm', medio:'22 × 30 cm', grande:'32 × 40 cm' }
   };
 
-  const LABELS = {
-    tipo:      { kraft: 'Kraft Natural', branca: 'Branca Premium', premium: 'Linha Premium' },
-    tamanho:   { pequena: 'Pequena', media: 'Média', grande: 'Grande' },
-    quantidade:{ 250: '250 unidades', 500: '500 unidades', 1000: '1.000 unidades' }
+  // Prazos por quantidade (dias úteis)
+  const PRAZOS = { 250:'10 a 12 dias úteis', 500:'12 a 15 dias úteis', 1000:'15 a 20 dias úteis' };
+
+  // Preços de referência de mercado (orientativo — confirmar com Olívio)
+  // Base: preço médio de mercado por unidade × quantidade
+  const PRICE_BASE = {
+    camiseta: { 250:[112,200],  500:[175,325],  1000:[250,500]  },
+    vazada:   { 250:[100,180],  500:[160,290],  1000:[225,450]  },
+    fita:     { 250:[200,350],  500:[325,550],  1000:[500,900]  },
+    kraft:    { 250:[300,625],  500:[450,950],  1000:[700,1500] }
   };
 
-  const BAG = {
-    kraft:   { body:'#C8A96E', top:'#B89860', bottom:'#A88750', handles:'#8B7355', logoBg:0.75 },
-    branca:  { body:'#F0F0F0', top:'#E0E0E0', bottom:'#D5D5D5', handles:'#BDBDBD', logoBg:0.9  },
-    premium: { body:'#2C3E50', top:'#243342', bottom:'#1a252f', handles:'#546E7A', logoBg:0.13 }
+  // Multiplicador de tamanho (médio = base, pequeno = -20%, grande = +30%)
+  const SIZE_MULT = { pequeno:0.80, medio:1.0, grande:1.30 };
+
+  const TIPO_LABELS   = { camiseta:'Alça Camiseta', vazada:'Alça Vazada', fita:'Alça Fita', kraft:'Papel Kraft' };
+  const TAM_LABELS    = { pequeno:'Pequeno', medio:'Médio', grande:'Grande' };
+  const QTD_LABELS    = { 250:'250 unidades', 500:'500 unidades', 1000:'1.000 unidades' };
+
+  // Cores do bag por tipo
+  const BAG_COLORS = {
+    camiseta: { body:'#5B9BD5', top:'#3A7DC9', bottom:'#2A6CB8', handles:'camiseta' },
+    vazada:   { body:'#34A85A', top:'#228B45', bottom:'#1A7035', handles:'vazada'   },
+    fita:     { body:'#9D6FE8', top:'#7C3AED', bottom:'#6B21CB', handles:'fita'     },
+    kraft:    { body:'#C8A96E', top:'#B89860', bottom:'#A88750', handles:'kraft'    }
   };
 
-  // ============ SELEÇÃO ============
+  // ============ SELEÇÃO TIPO ============
+
+  function selectTipo(card) {
+    document.querySelectorAll('.type-cards-4 .type-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    S.tipo = card.dataset.value;
+    S.tamanho = null; // reset tamanho ao mudar tipo
+    document.querySelectorAll('#step-2 .option-card').forEach(c => c.classList.remove('selected'));
+    updateSizeDimensions();
+    updateBagPreview();
+    updateDetails();
+    updatePrice();
+    hideError('error-1');
+  }
+
+  function updateSizeDimensions() {
+    if (!S.tipo) return;
+    const t = TAMANHOS[S.tipo];
+    document.getElementById('size-p').textContent = t.pequeno;
+    document.getElementById('size-m').textContent = t.medio;
+    document.getElementById('size-g').textContent = t.grande;
+  }
+
+  // ============ SELEÇÃO GENÉRICA ============
 
   function selectOption(card, field) {
     const parent = card.parentElement;
@@ -360,26 +409,21 @@
     card.classList.add('selected');
     S[field] = field === 'quantidade' ? parseInt(card.dataset.value) : card.dataset.value;
     hideError('error-' + S.step);
-
-    if (field === 'tipo') updateBagColor();
     updateDetails();
     updatePrice();
+    updatePrazo();
   }
 
   // ============ NAVEGAÇÃO ============
 
-  function nextStep(targetStep, requiredField, errorId) {
-    if (!S[requiredField]) {
-      showError(errorId);
-      return;
-    }
-    goToStep(targetStep);
+  function nextStep(target, requiredField, errorId) {
+    if (!S[requiredField]) { showError(errorId); return; }
+    goToStep(target);
   }
 
   function goToStep5() {
     if (!S.logoUrl && !S.skipLogo) {
-      const ok = confirm('Você ainda não enviou a logo.\n\nDeseja continuar sem ela?');
-      if (!ok) return;
+      if (!confirm('Você ainda não enviou a logo.\n\nDeseja continuar sem ela?\n(A equipe pode ajudar depois pelo WhatsApp)')) return;
       S.skipLogo = true;
     }
     goToStep(5);
@@ -392,13 +436,13 @@
     S.step = n;
     document.getElementById('step-' + n).classList.add('active');
     updateStepper();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top:0, behavior:'smooth' });
   }
 
   function updateStepper() {
     document.querySelectorAll('.stepper-item').forEach((el, i) => {
       const n = i + 1;
-      el.classList.remove('active', 'completed');
+      el.classList.remove('active','completed');
       if (n === S.step) el.classList.add('active');
       else if (n < S.step) el.classList.add('completed');
     });
@@ -423,28 +467,13 @@
     document.getElementById('logo-input').click();
   }
 
-  function onFileSelect(e) { processFile(e.target.files[0]); }
-
-  function onDragOver(e) {
-    e.preventDefault();
-    document.getElementById('upload-area').classList.add('dragging');
-  }
-
-  function onDragLeave() {
-    document.getElementById('upload-area').classList.remove('dragging');
-  }
-
-  function onDrop(e) {
-    e.preventDefault();
-    onDragLeave();
-    if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
-  }
+  function onFileSelect(e) { if (e.target.files[0]) processFile(e.target.files[0]); }
+  function onDragOver(e) { e.preventDefault(); document.getElementById('upload-area').classList.add('dragging'); }
+  function onDragLeave() { document.getElementById('upload-area').classList.remove('dragging'); }
+  function onDrop(e) { e.preventDefault(); onDragLeave(); if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]); }
 
   function processFile(file) {
-    if (!file) return;
     S.logoName = file.name;
-
-    // Atualizar UI do upload
     document.getElementById('upload-idle').style.display = 'none';
     document.getElementById('upload-done').style.display = 'block';
     document.getElementById('upload-filename').textContent = file.name;
@@ -454,14 +483,11 @@
 
     if (file.type.startsWith('image/')) {
       const reader = new FileReader();
-      reader.onload = (ev) => {
-        S.logoUrl = ev.target.result;
-        applyLogoToSvg(ev.target.result);
-      };
+      reader.onload = ev => { S.logoUrl = ev.target.result; applyLogo(ev.target.result); };
       reader.readAsDataURL(file);
     } else {
       S.logoUrl = '__pdf__';
-      setLogoPlaceholder('PDF enviado ✓', '#10B981');
+      setLogoText('Arquivo enviado ✓', '#10B981');
     }
   }
 
@@ -470,37 +496,50 @@
     document.getElementById('skip-label').classList.toggle('selected', cb.checked);
     if (cb.checked) {
       S.logoUrl = null;
-      // Reset upload UI
       document.getElementById('upload-idle').style.display = 'block';
       document.getElementById('upload-done').style.display = 'none';
       document.getElementById('upload-area').classList.remove('has-file');
-      // Reset bag logo
       document.getElementById('svg-logo-img').style.display = 'none';
-      setLogoPlaceholder('SUA LOGO AQUI', '#9CA3AF');
+      setLogoText('SUA LOGO AQUI', '#9CA3AF');
     }
   }
 
-  // ============ SVG BAG ============
+  // ============ SVG PREVIEW ============
 
-  function updateBagColor() {
-    const c = BAG[S.tipo];
-    if (!c) return;
+  function updateBagPreview() {
+    if (!S.tipo) return;
+    const c = BAG_COLORS[S.tipo];
+
+    // Body, top, bottom colors
     document.getElementById('svg-body').setAttribute('fill', c.body);
     document.getElementById('svg-top').setAttribute('fill', c.top);
     document.getElementById('svg-bottom').setAttribute('fill', c.bottom);
-    document.getElementById('svg-handles').setAttribute('stroke', c.handles);
-    document.getElementById('svg-logo-bg').setAttribute('opacity', c.logoBg);
+
+    // Handles: hide all, show correct one
+    document.getElementById('handles-arch').style.display     = 'none';
+    document.getElementById('handles-camiseta').style.display = 'none';
+    document.getElementById('handles-vazada').style.display   = 'none';
+    document.getElementById('handles-fita').style.display     = 'none';
+    document.getElementById('handles-kraft').style.display    = 'none';
+
+    const handleEl = document.getElementById('handles-' + c.handles);
+    if (handleEl) {
+      handleEl.style.display = 'block';
+      // Update handle colors
+      handleEl.querySelectorAll('[stroke]').forEach(el => { if (el.getAttribute('stroke') !== 'none') el.setAttribute('stroke', c.top); });
+      handleEl.querySelectorAll('[fill]:not([fill="white"]):not([fill="none"])').forEach(el => el.setAttribute('fill', c.body));
+    }
+
     document.getElementById('svg-hint').style.display = 'none';
   }
 
-  function applyLogoToSvg(dataUrl) {
-    const img = document.getElementById('svg-logo-img');
-    img.setAttribute('href', dataUrl);
-    img.style.display = 'block';
+  function applyLogo(dataUrl) {
+    document.getElementById('svg-logo-img').setAttribute('href', dataUrl);
+    document.getElementById('svg-logo-img').style.display = 'block';
     document.getElementById('svg-logo-text').style.display = 'none';
   }
 
-  function setLogoPlaceholder(text, color) {
+  function setLogoText(text, color) {
     const el = document.getElementById('svg-logo-text');
     el.textContent = text;
     el.setAttribute('fill', color);
@@ -510,58 +549,79 @@
 
   // ============ PREÇO ============
 
-  function calcTotal() {
-    if (!S.tipo || !S.tamanho || !S.quantidade) return null;
-    const unit = PRICES.base[S.tamanho] * PRICES.mult[S.tipo] * (1 - (PRICES.desc[S.quantidade] || 0));
-    return Math.round(unit * S.quantidade);
+  function calcPriceRange() {
+    if (!S.tipo || !S.quantidade) return null;
+    const base = PRICE_BASE[S.tipo][S.quantidade];
+    const mult = S.tamanho ? SIZE_MULT[S.tamanho] : 1.0;
+    const low  = Math.round(base[0] * mult);
+    const high = Math.round(base[1] * mult);
+    return [low, high];
+  }
+
+  function formatPrice(range) {
+    if (!range) return '—';
+    return `R$ ${range[0].toLocaleString('pt-BR')} – R$ ${range[1].toLocaleString('pt-BR')}`;
   }
 
   function updatePrice() {
-    const total = calcTotal();
-    document.getElementById('price-value').textContent = total
-      ? 'R$ ' + total.toLocaleString('pt-BR')
-      : '—';
+    const range = calcPriceRange();
+    document.getElementById('price-value').textContent = formatPrice(range);
+  }
+
+  function updatePrazo() {
+    if (S.quantidade) {
+      const prazo = PRAZOS[S.quantidade] || '10 a 20 dias úteis';
+      document.getElementById('deadline-text').innerHTML = `Prazo: <strong>${prazo}</strong>`;
+    }
   }
 
   function updateDetails() {
-    const el = document.getElementById('panel-details');
-    const hasAny = S.tipo || S.tamanho || S.quantidade;
-    el.style.display = hasAny ? 'flex' : 'none';
-    if (S.tipo)      document.getElementById('detail-tipo').textContent     = LABELS.tipo[S.tipo];
-    if (S.tamanho)   document.getElementById('detail-tamanho').textContent  = LABELS.tamanho[S.tamanho];
-    if (S.quantidade) document.getElementById('detail-qtd').textContent     = LABELS.quantidade[S.quantidade];
+    const show = !!(S.tipo || S.tamanho || S.quantidade);
+    document.getElementById('panel-details').style.display = show ? 'flex' : 'none';
+    if (S.tipo)      document.getElementById('detail-tipo').textContent    = TIPO_LABELS[S.tipo];
+    if (S.tamanho)   document.getElementById('detail-tamanho').textContent = `${TAM_LABELS[S.tamanho]}${S.tipo ? ' (' + TAMANHOS[S.tipo][S.tamanho] + ')' : ''}`;
+    if (S.quantidade) document.getElementById('detail-qtd').textContent    = QTD_LABELS[S.quantidade];
   }
 
-  // ============ PASSO 5 ============
+  // ============ STEP 5 ============
 
   function fillSummary() {
-    const total = calcTotal();
-    document.getElementById('sum-tipo').textContent      = S.tipo      ? LABELS.tipo[S.tipo]           : '—';
-    document.getElementById('sum-tamanho').textContent   = S.tamanho   ? LABELS.tamanho[S.tamanho]     : '—';
-    document.getElementById('sum-quantidade').textContent = S.quantidade ? LABELS.quantidade[S.quantidade] : '—';
-    document.getElementById('sum-total').textContent     = total ? 'R$ ' + total.toLocaleString('pt-BR') : '—';
+    const range = calcPriceRange();
+    const prazo = S.quantidade ? PRAZOS[S.quantidade] : '10 a 20 dias úteis';
+    const tamLabel = S.tamanho && S.tipo
+      ? `${TAM_LABELS[S.tamanho]} (${TAMANHOS[S.tipo][S.tamanho]})`
+      : '—';
+
+    document.getElementById('sum-tipo').textContent      = S.tipo      ? TIPO_LABELS[S.tipo]  : '—';
+    document.getElementById('sum-tamanho').textContent   = tamLabel;
+    document.getElementById('sum-quantidade').textContent = S.quantidade ? QTD_LABELS[S.quantidade] : '—';
+    document.getElementById('sum-logo').textContent      = S.skipLogo ? 'A enviar depois' : (S.logoUrl ? `Enviada (${S.logoName})` : 'A enviar depois');
+    document.getElementById('sum-total').textContent     = formatPrice(range);
+    document.getElementById('sum-prazo').textContent     = prazo;
   }
 
   function buildWhatsAppLink() {
-    const total = calcTotal();
-    const totalStr = total ? 'R$ ' + total.toLocaleString('pt-BR') : 'a confirmar';
-    const logoStr  = S.skipLogo ? 'Logo a enviar' : (S.logoUrl === '__pdf__' ? 'PDF enviado' : (S.logoUrl ? 'Imagem enviada (' + S.logoName + ')' : 'Logo a enviar'));
+    const range = calcPriceRange();
+    const priceStr = range ? `R$ ${range[0].toLocaleString('pt-BR')} a R$ ${range[1].toLocaleString('pt-BR')} (estimativa)` : 'a confirmar';
+    const tamLabel = S.tamanho && S.tipo ? `${TAM_LABELS[S.tamanho]} – ${TAMANHOS[S.tipo][S.tamanho]}` : 'a definir';
+    const prazo = S.quantidade ? PRAZOS[S.quantidade] : 'a confirmar';
+    const logoStr = S.skipLogo ? 'Enviarei depois' : (S.logoUrl === '__pdf__' ? `Arquivo: ${S.logoName}` : (S.logoUrl ? `Imagem: ${S.logoName}` : 'Enviarei depois'));
 
     const msg = [
-      'Olá! Acabei de configurar meu pedido no site da Art Sacolas:',
+      'Olá! Acabei de configurar meu pedido no site da Art & Sacolas:',
       '',
-      '📦 *Tipo:* '        + (S.tipo      ? LABELS.tipo[S.tipo]              : 'Não definido'),
-      '📐 *Tamanho:* '     + (S.tamanho   ? LABELS.tamanho[S.tamanho]       : 'Não definido'),
-      '🔢 *Quantidade:* '  + (S.quantidade ? LABELS.quantidade[S.quantidade]  : 'Não definida'),
-      '💰 *Valor estimado:* ' + totalStr,
-      '🎨 *Logo:* ' + logoStr,
-      '⏱️ *Prazo solicitado:* 15 a 20 dias',
+      `📦 *Tipo:* ${S.tipo ? TIPO_LABELS[S.tipo] : 'Não definido'}`,
+      `📐 *Tamanho:* ${tamLabel}`,
+      `🔢 *Quantidade:* ${S.quantidade ? S.quantidade + ' unidades' : 'Não definida'}`,
+      `💰 *Estimativa:* ${priceStr}`,
+      `🎨 *Logo:* ${logoStr}`,
+      `⏱️ *Prazo:* ${prazo}`,
       '',
-      'Gostaria de confirmar o pedido e saber os próximos passos!'
+      'Gostaria de confirmar o orçamento e os próximos passos!'
     ].join('\n');
 
-    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
-    document.getElementById('whatsapp-btn').href = url;
+    document.getElementById('whatsapp-btn').href =
+      'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
   }
   </script>
 
