@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurar Sacola — Art Sacolas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header config-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Art<strong>Sacolas</strong></span>
+      </a>
+      <div class="breadcrumb">
+        <a href="index.html">Início</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Configurar sacola</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="config-layout">
+
+    <!-- ===== PAINEL ESQUERDO ===== -->
+    <div class="config-left">
+
+      <!-- STEPPER -->
+      <div class="stepper" id="stepper">
+        <div class="stepper-item active" data-step="1">
+          <div class="stepper-dot"><span>1</span></div>
+        </div>
+        <div class="stepper-item" data-step="2">
+          <div class="stepper-dot"><span>2</span></div>
+        </div>
+        <div class="stepper-item" data-step="3">
+          <div class="stepper-dot"><span>3</span></div>
+        </div>
+        <div class="stepper-item" data-step="4">
+          <div class="stepper-dot"><span>4</span></div>
+        </div>
+        <div class="stepper-item" data-step="5">
+          <div class="stepper-dot"><span>5</span></div>
+        </div>
+      </div>
+
+      <!-- ===== PASSO 1: TIPO ===== -->
+      <div class="step-content active" id="step-1">
+        <div class="step-label">Passo 1 de 5</div>
+        <h2 class="step-title">Escolha o tipo da sua sacola</h2>
+        <p class="step-subtitle">Selecione o material que melhor representa a sua marca</p>
+
+        <div id="error-1" class="step-error">⚠️ Escolha um tipo de sacola para continuar.</div>
+
+        <div class="type-cards">
+          <div class="type-card" data-value="kraft" onclick="selectOption(this, 'tipo')">
+            <div class="type-card-visual kraft">
+              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
+                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#8B7355" stroke-width="13" fill="none" stroke-linecap="round"/>
+                <rect x="25" y="90" width="250" height="255" rx="8" fill="#C8A96E"/>
+                <rect x="25" y="320" width="250" height="25" fill="#A88750"/>
+                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Kraft Natural</div>
+              <div class="type-card-desc">Resistente · Sustentável</div>
+            </div>
+          </div>
+
+          <div class="type-card" data-value="branca" onclick="selectOption(this, 'tipo')">
+            <div class="type-card-visual branca">
+              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
+                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#BDBDBD" stroke-width="13" fill="none" stroke-linecap="round"/>
+                <rect x="25" y="90" width="250" height="255" rx="8" fill="#F0F0F0"/>
+                <rect x="25" y="320" width="250" height="25" fill="#D5D5D5"/>
+                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" stroke="#E8E8E8" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Branca Premium</div>
+              <div class="type-card-desc">Clean · Elegante</div>
+            </div>
+          </div>
+
+          <div class="type-card" data-value="premium" onclick="selectOption(this, 'tipo')">
+            <div class="type-card-visual premium">
+              <svg width="72" height="90" viewBox="0 0 300 370" fill="none">
+                <path d="M90,90 Q90,45 150,45 Q210,45 210,90" stroke="#546E7A" stroke-width="13" fill="none" stroke-linecap="round"/>
+                <rect x="25" y="90" width="250" height="255" rx="8" fill="#2C3E50"/>
+                <rect x="25" y="320" width="250" height="25" fill="#1a252f"/>
+                <rect x="70" y="158" width="160" height="100" rx="4" fill="white" opacity="0.12"/>
+              </svg>
+            </div>
+            <div class="type-card-info">
+              <div class="type-card-name">Linha Premium</div>
+              <div class="type-card-desc">Sofisticada · Impacta</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-primary" onclick="nextStep(2, 'tipo', 'error-1')">
+            Próximo: escolher tamanho →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PASSO 2: TAMANHO ===== -->
+      <div class="step-content" id="step-2">
+        <div class="step-label">Passo 2 de 5</div>
+        <h2 class="step-title">Qual tamanho você precisa?</h2>
+        <p class="step-subtitle">A sacola certa para o produto da sua loja</p>
+
+        <div id="error-2" class="step-error">⚠️ Escolha um tamanho para continuar.</div>
+
+        <div class="size-options">
+          <div class="option-card" data-value="pequena" onclick="selectOption(this, 'tamanho')">
+            <div class="option-label">Pequena</div>
+            <div class="option-detail">aprox. 22 × 30 cm</div>
+          </div>
+          <div class="option-card" data-value="media" onclick="selectOption(this, 'tamanho')">
+            <div class="option-label">Média</div>
+            <div class="option-detail">aprox. 30 × 40 cm</div>
+          </div>
+          <div class="option-card" data-value="grande" onclick="selectOption(this, 'tamanho')">
+            <div class="option-label">Grande</div>
+            <div class="option-detail">aprox. 40 × 50 cm</div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-ghost" onclick="goToStep(1)">← Voltar</button>
+          <button class="btn btn-primary" onclick="nextStep(3, 'tamanho', 'error-2')">
+            Próximo: quantidade →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PASSO 3: QUANTIDADE ===== -->
+      <div class="step-content" id="step-3">
+        <div class="step-label">Passo 3 de 5</div>
+        <h2 class="step-title">Quantas sacolas você precisa?</h2>
+        <p class="step-subtitle">Quanto mais você pede, melhor o preço por unidade</p>
+
+        <div id="error-3" class="step-error">⚠️ Escolha uma quantidade para continuar.</div>
+
+        <div class="qty-options">
+          <div class="qty-card" data-value="250" onclick="selectOption(this, 'quantidade')">
+            <div class="qty-number">250</div>
+            <div class="qty-unit">unidades</div>
+          </div>
+          <div class="qty-card" data-value="500" onclick="selectOption(this, 'quantidade')">
+            <div class="qty-badge">Mais pedido</div>
+            <div class="qty-number">500</div>
+            <div class="qty-unit">unidades</div>
+          </div>
+          <div class="qty-card" data-value="1000" onclick="selectOption(this, 'quantidade')">
+            <div class="qty-badge">Melhor preço</div>
+            <div class="qty-number">1.000</div>
+            <div class="qty-unit">unidades</div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-ghost" onclick="goToStep(2)">← Voltar</button>
+          <button class="btn btn-primary" onclick="nextStep(4, 'quantidade', 'error-3')">
+            Próximo: enviar logo →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PASSO 4: LOGO ===== -->
+      <div class="step-content" id="step-4">
+        <div class="step-label">Passo 4 de 5</div>
+        <h2 class="step-title">Envie sua logo para visualizar na sacola</h2>
+        <p class="step-subtitle">Veja como vai ficar antes de fechar o pedido</p>
+
+        <div class="upload-area" id="upload-area"
+             onclick="triggerUpload()"
+             ondragover="onDragOver(event)"
+             ondrop="onDrop(event)"
+             ondragleave="onDragLeave()">
+          <input type="file" class="upload-input" id="logo-input"
+                 accept=".png,.jpg,.jpeg,.svg,.pdf"
+                 onchange="onFileSelect(event)">
+          <div id="upload-idle">
+            <div class="upload-icon">📁</div>
+            <div class="upload-title">Arraste sua logo aqui ou clique para selecionar</div>
+            <div class="upload-desc">Sua logo será aplicada na prévia da sacola ao lado</div>
+            <div class="upload-formats">Aceita: PNG · JPG · SVG · PDF</div>
+          </div>
+          <div id="upload-done" style="display:none;">
+            <div class="upload-icon">✅</div>
+            <div class="upload-title" id="upload-filename">Logo carregada!</div>
+            <div class="upload-desc">Clique para trocar o arquivo</div>
+          </div>
+        </div>
+
+        <label class="skip-logo" id="skip-label">
+          <input type="checkbox" id="skip-check" onchange="onSkipLogo(this)">
+          <span>Não tenho logo agora — continuar assim mesmo</span>
+        </label>
+
+        <div class="step-nav">
+          <button class="btn btn-ghost" onclick="goToStep(3)">← Voltar</button>
+          <button class="btn btn-primary" onclick="goToStep5()">
+            Gerar prévia e orçamento →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PASSO 5: PRÉVIA + ORÇAMENTO ===== -->
+      <div class="step-content" id="step-5">
+        <div class="step-label">Passo 5 de 5</div>
+        <h2 class="step-title">Veja como sua sacola vai ficar</h2>
+        <p class="step-subtitle">Revise o pedido e finalize pelo WhatsApp</p>
+
+        <div class="preview-summary">
+          <div class="preview-summary-label">Resumo do pedido</div>
+          <div class="preview-row">
+            <span>Tipo de sacola</span>
+            <span id="sum-tipo">—</span>
+          </div>
+          <div class="preview-row">
+            <span>Tamanho</span>
+            <span id="sum-tamanho">—</span>
+          </div>
+          <div class="preview-row">
+            <span>Quantidade</span>
+            <span id="sum-quantidade">—</span>
+          </div>
+          <div class="preview-total-row">
+            <span class="preview-total-label">Valor estimado</span>
+            <span class="preview-total-value" id="sum-total">R$ —</span>
+          </div>
+        </div>
+
+        <div class="delivery-box">
+          <span class="delivery-box-icon">🗓️</span>
+          <div class="delivery-box-text">
+            <strong>Prazo de entrega: 15 a 20 dias úteis</strong>
+            Após confirmação do pedido e envio da arte final
+          </div>
+        </div>
+
+        <div class="step-nav" style="flex-direction: column; gap: 12px;">
+          <a href="#" class="btn btn-whatsapp btn-full" id="whatsapp-btn" target="_blank">
+            💬 Finalizar pedido no WhatsApp
+          </a>
+          <button class="btn btn-secondary btn-full" onclick="goToStep(1)">
+            ← Voltar e editar pedido
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /config-left -->
+
+    <!-- ===== PAINEL DIREITO (PREVIEW) ===== -->
+    <div class="config-right">
+      <div class="panel-label">Prévia da sua sacola</div>
+
+      <!-- SVG DINÂMICO DA SACOLA -->
+      <div class="bag-preview-wrap">
+        <svg class="bag-preview-svg" id="bag-svg" viewBox="0 0 300 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="svg-handles" d="M90,90 Q90,45 150,45 Q210,45 210,90"
+                stroke="#D1D5DB" stroke-width="13" fill="none" stroke-linecap="round"/>
+          <rect id="svg-body" x="25" y="90" width="250" height="255" rx="8" fill="#E5E7EB"/>
+          <rect id="svg-top" x="25" y="90" width="250" height="22" fill="#D1D5DB"/>
+          <rect id="svg-bottom" x="25" y="320" width="250" height="25" fill="#D1D5DB"/>
+          <rect id="svg-shadow-l" x="25" y="90" width="20" height="255" fill="black" opacity="0.04"/>
+          <rect id="svg-shadow-r" x="255" y="90" width="20" height="255" fill="black" opacity="0.04"/>
+          <!-- Logo area -->
+          <rect id="svg-logo-bg" x="70" y="158" width="160" height="110" rx="5" fill="white" opacity="0.5"/>
+          <image id="svg-logo-img" x="78" y="163" width="144" height="100" style="display:none;" preserveAspectRatio="xMidYMid meet"/>
+          <text id="svg-logo-text" x="150" y="218" text-anchor="middle" fill="#9CA3AF" font-size="11" font-family="system-ui, sans-serif">SUA LOGO AQUI</text>
+          <!-- Empty hint -->
+          <text id="svg-hint" x="150" y="305" text-anchor="middle" fill="#D1D5DB" font-size="10" font-family="system-ui, sans-serif">← configure ao lado</text>
+        </svg>
+      </div>
+
+      <!-- DETALHES -->
+      <div class="panel-details" id="panel-details" style="display:none;">
+        <div class="panel-detail-row">
+          <span class="panel-detail-key">Tipo</span>
+          <span class="panel-detail-val" id="detail-tipo">—</span>
+        </div>
+        <div class="panel-detail-row">
+          <span class="panel-detail-key">Tamanho</span>
+          <span class="panel-detail-val" id="detail-tamanho">—</span>
+        </div>
+        <div class="panel-detail-row">
+          <span class="panel-detail-key">Quantidade</span>
+          <span class="panel-detail-val" id="detail-qtd">—</span>
+        </div>
+      </div>
+
+      <!-- PREÇO -->
+      <div class="price-box">
+        <div class="price-box-label">Valor estimado</div>
+        <div class="price-box-value" id="price-value">—</div>
+        <div class="price-box-note">*indicativo · sujeito a confirmação</div>
+      </div>
+
+      <!-- PRAZO (sempre visível) -->
+      <div class="deadline-box">
+        <span class="deadline-icon">🗓️</span>
+        <span class="deadline-text">Prazo: <strong>15 a 20 dias úteis</strong></span>
+      </div>
+    </div>
+
+  </div><!-- /config-layout -->
+
+  <script>
+  // ============================================
+  //  ART SACOLAS — Lógica do Configurador
+  // ============================================
+
+  // Estado global
+  const S = {
+    step: 1,
+    tipo: null,
+    tamanho: null,
+    quantidade: null,
+    logoUrl: null,
+    logoName: null,
+    skipLogo: false
+  };
+
+  // ⚠️ Substituir pelo número real do Olívio (formato: 55 + DDD + número)
+  // Exemplo: WhatsApp (11) 99999-9999 → '5511999999999'
+  const WHATSAPP = '5500000000000';
+
+  // Tabela de preços orientativa — confirmar com Olívio antes de publicar
+  const PRICES = {
+    base: { pequena: 8.50, media: 10.50, grande: 13.50 },
+    mult: { kraft: 1.0, branca: 1.2, premium: 1.5 },
+    desc: { 250: 0, 500: 0.12, 1000: 0.22 }
+  };
+
+  const LABELS = {
+    tipo:      { kraft: 'Kraft Natural', branca: 'Branca Premium', premium: 'Linha Premium' },
+    tamanho:   { pequena: 'Pequena', media: 'Média', grande: 'Grande' },
+    quantidade:{ 250: '250 unidades', 500: '500 unidades', 1000: '1.000 unidades' }
+  };
+
+  const BAG = {
+    kraft:   { body:'#C8A96E', top:'#B89860', bottom:'#A88750', handles:'#8B7355', logoBg:0.75 },
+    branca:  { body:'#F0F0F0', top:'#E0E0E0', bottom:'#D5D5D5', handles:'#BDBDBD', logoBg:0.9  },
+    premium: { body:'#2C3E50', top:'#243342', bottom:'#1a252f', handles:'#546E7A', logoBg:0.13 }
+  };
+
+  // ============ SELEÇÃO ============
+
+  function selectOption(card, field) {
+    const parent = card.parentElement;
+    parent.querySelectorAll('[data-value]').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    S[field] = field === 'quantidade' ? parseInt(card.dataset.value) : card.dataset.value;
+    hideError('error-' + S.step);
+
+    if (field === 'tipo') updateBagColor();
+    updateDetails();
+    updatePrice();
+  }
+
+  // ============ NAVEGAÇÃO ============
+
+  function nextStep(targetStep, requiredField, errorId) {
+    if (!S[requiredField]) {
+      showError(errorId);
+      return;
+    }
+    goToStep(targetStep);
+  }
+
+  function goToStep5() {
+    if (!S.logoUrl && !S.skipLogo) {
+      const ok = confirm('Você ainda não enviou a logo.\n\nDeseja continuar sem ela?');
+      if (!ok) return;
+      S.skipLogo = true;
+    }
+    goToStep(5);
+    fillSummary();
+    buildWhatsAppLink();
+  }
+
+  function goToStep(n) {
+    document.getElementById('step-' + S.step).classList.remove('active');
+    S.step = n;
+    document.getElementById('step-' + n).classList.add('active');
+    updateStepper();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateStepper() {
+    document.querySelectorAll('.stepper-item').forEach((el, i) => {
+      const n = i + 1;
+      el.classList.remove('active', 'completed');
+      if (n === S.step) el.classList.add('active');
+      else if (n < S.step) el.classList.add('completed');
+    });
+  }
+
+  // ============ ERROS ============
+
+  function showError(id) {
+    const el = document.getElementById(id);
+    if (el) { el.style.display = 'block'; el.scrollIntoView({ behavior:'smooth', block:'nearest' }); }
+  }
+
+  function hideError(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  }
+
+  // ============ UPLOAD ============
+
+  function triggerUpload() {
+    if (document.getElementById('skip-check').checked) return;
+    document.getElementById('logo-input').click();
+  }
+
+  function onFileSelect(e) { processFile(e.target.files[0]); }
+
+  function onDragOver(e) {
+    e.preventDefault();
+    document.getElementById('upload-area').classList.add('dragging');
+  }
+
+  function onDragLeave() {
+    document.getElementById('upload-area').classList.remove('dragging');
+  }
+
+  function onDrop(e) {
+    e.preventDefault();
+    onDragLeave();
+    if (e.dataTransfer.files[0]) processFile(e.dataTransfer.files[0]);
+  }
+
+  function processFile(file) {
+    if (!file) return;
+    S.logoName = file.name;
+
+    // Atualizar UI do upload
+    document.getElementById('upload-idle').style.display = 'none';
+    document.getElementById('upload-done').style.display = 'block';
+    document.getElementById('upload-filename').textContent = file.name;
+    document.getElementById('upload-area').classList.add('has-file');
+    document.getElementById('skip-check').checked = false;
+    document.getElementById('skip-label').classList.remove('selected');
+
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        S.logoUrl = ev.target.result;
+        applyLogoToSvg(ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      S.logoUrl = '__pdf__';
+      setLogoPlaceholder('PDF enviado ✓', '#10B981');
+    }
+  }
+
+  function onSkipLogo(cb) {
+    S.skipLogo = cb.checked;
+    document.getElementById('skip-label').classList.toggle('selected', cb.checked);
+    if (cb.checked) {
+      S.logoUrl = null;
+      // Reset upload UI
+      document.getElementById('upload-idle').style.display = 'block';
+      document.getElementById('upload-done').style.display = 'none';
+      document.getElementById('upload-area').classList.remove('has-file');
+      // Reset bag logo
+      document.getElementById('svg-logo-img').style.display = 'none';
+      setLogoPlaceholder('SUA LOGO AQUI', '#9CA3AF');
+    }
+  }
+
+  // ============ SVG BAG ============
+
+  function updateBagColor() {
+    const c = BAG[S.tipo];
+    if (!c) return;
+    document.getElementById('svg-body').setAttribute('fill', c.body);
+    document.getElementById('svg-top').setAttribute('fill', c.top);
+    document.getElementById('svg-bottom').setAttribute('fill', c.bottom);
+    document.getElementById('svg-handles').setAttribute('stroke', c.handles);
+    document.getElementById('svg-logo-bg').setAttribute('opacity', c.logoBg);
+    document.getElementById('svg-hint').style.display = 'none';
+  }
+
+  function applyLogoToSvg(dataUrl) {
+    const img = document.getElementById('svg-logo-img');
+    img.setAttribute('href', dataUrl);
+    img.style.display = 'block';
+    document.getElementById('svg-logo-text').style.display = 'none';
+  }
+
+  function setLogoPlaceholder(text, color) {
+    const el = document.getElementById('svg-logo-text');
+    el.textContent = text;
+    el.setAttribute('fill', color);
+    el.style.display = 'block';
+    document.getElementById('svg-logo-img').style.display = 'none';
+  }
+
+  // ============ PREÇO ============
+
+  function calcTotal() {
+    if (!S.tipo || !S.tamanho || !S.quantidade) return null;
+    const unit = PRICES.base[S.tamanho] * PRICES.mult[S.tipo] * (1 - (PRICES.desc[S.quantidade] || 0));
+    return Math.round(unit * S.quantidade);
+  }
+
+  function updatePrice() {
+    const total = calcTotal();
+    document.getElementById('price-value').textContent = total
+      ? 'R$ ' + total.toLocaleString('pt-BR')
+      : '—';
+  }
+
+  function updateDetails() {
+    const el = document.getElementById('panel-details');
+    const hasAny = S.tipo || S.tamanho || S.quantidade;
+    el.style.display = hasAny ? 'flex' : 'none';
+    if (S.tipo)      document.getElementById('detail-tipo').textContent     = LABELS.tipo[S.tipo];
+    if (S.tamanho)   document.getElementById('detail-tamanho').textContent  = LABELS.tamanho[S.tamanho];
+    if (S.quantidade) document.getElementById('detail-qtd').textContent     = LABELS.quantidade[S.quantidade];
+  }
+
+  // ============ PASSO 5 ============
+
+  function fillSummary() {
+    const total = calcTotal();
+    document.getElementById('sum-tipo').textContent      = S.tipo      ? LABELS.tipo[S.tipo]           : '—';
+    document.getElementById('sum-tamanho').textContent   = S.tamanho   ? LABELS.tamanho[S.tamanho]     : '—';
+    document.getElementById('sum-quantidade').textContent = S.quantidade ? LABELS.quantidade[S.quantidade] : '—';
+    document.getElementById('sum-total').textContent     = total ? 'R$ ' + total.toLocaleString('pt-BR') : '—';
+  }
+
+  function buildWhatsAppLink() {
+    const total = calcTotal();
+    const totalStr = total ? 'R$ ' + total.toLocaleString('pt-BR') : 'a confirmar';
+    const logoStr  = S.skipLogo ? 'Logo a enviar' : (S.logoUrl === '__pdf__' ? 'PDF enviado' : (S.logoUrl ? 'Imagem enviada (' + S.logoName + ')' : 'Logo a enviar'));
+
+    const msg = [
+      'Olá! Acabei de configurar meu pedido no site da Art Sacolas:',
+      '',
+      '📦 *Tipo:* '        + (S.tipo      ? LABELS.tipo[S.tipo]              : 'Não definido'),
+      '📐 *Tamanho:* '     + (S.tamanho   ? LABELS.tamanho[S.tamanho]       : 'Não definido'),
+      '🔢 *Quantidade:* '  + (S.quantidade ? LABELS.quantidade[S.quantidade]  : 'Não definida'),
+      '💰 *Valor estimado:* ' + totalStr,
+      '🎨 *Logo:* ' + logoStr,
+      '⏱️ *Prazo solicitado:* 15 a 20 dias',
+      '',
+      'Gostaria de confirmar o pedido e saber os próximos passos!'
+    ].join('\n');
+
+    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+    document.getElementById('whatsapp-btn').href = url;
+  }
+  </script>
+
+</body>
+</html>
