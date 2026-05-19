@@ -918,25 +918,148 @@ section { padding: 88px 0; }
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* TABLET (≤ 1024px) */
 @media (max-width: 1024px) {
   .config-layout { grid-template-columns: 1fr; }
   .config-right { position: relative; top: auto; height: auto; order: -1; }
   .config-left { padding: 36px 32px; max-width: 100%; }
 }
 
+/* MOBILE (≤ 768px) */
 @media (max-width: 768px) {
+  .container { padding: 0 24px; }
+
+  section { padding: 60px 0; }
+  .hero { padding: 56px 0; }
+  .cta-final { padding: 72px 0; }
+
+  .header .container { height: 60px; }
+
+  /* Hero: 1 coluna, esconde carrossel */
   .hero-content { grid-template-columns: 1fr; }
   .hero-image { display: none; }
-  .gallery-grid { grid-template-columns: 1fr; }
+
+  /* Gallery: 2×2 em vez de 1 coluna */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px; }
+  .gallery-bag-display { height: 200px; }
+
+  /* Como funciona */
   .steps-grid { flex-direction: column; }
   .step-arrow { transform: rotate(90deg); align-self: center; }
+
+  /* Diferenciais */
   .diff-grid { grid-template-columns: 1fr; gap: 40px; }
-  .type-cards { grid-template-columns: 1fr; }
-  .type-cards-4 { grid-template-columns: 1fr; }
-  .size-options, .qty-options { grid-template-columns: 1fr; }
+
+  /* Segmentos */
   .segments-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Configurador — tipo cards 2×2 */
+  .type-cards { grid-template-columns: repeat(2, 1fr); }
+  .type-cards-4 { grid-template-columns: repeat(2, 1fr); }
+
+  /* Tamanho e quantidade: mantém 3 colunas mas reduz padding */
+  .option-card { padding: 18px 10px; }
+  .qty-card { padding: 20px 10px; }
+
+  /* Painel direito do configurador */
+  .config-left { padding: 28px 24px; }
+  .config-right { padding: 28px 24px; }
+  .bag-preview-wrap { padding: 20px; min-height: 200px; }
+  .bag-preview-photo-wrap { height: 220px; }
+
+  /* WhatsApp float: só ícone */
   .whatsapp-float span { display: none; }
   .whatsapp-float { padding: 14px 16px; }
-  section { padding: 60px 0; }
-  .hero { padding: 64px 0; }
+}
+
+/* PHONES PEQUENOS (≤ 480px) */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+
+  section { padding: 48px 0; }
+  .hero { padding: 40px 0; }
+  .cta-final { padding: 56px 0; }
+
+  .header .container { height: 56px; }
+  .header .btn { padding: 8px 14px; font-size: 0.8125rem; }
+  .logo-text { font-size: 1.05rem; }
+
+  .hero-subtitle { font-size: 0.9375rem; margin-bottom: 24px; }
+  .hero-note { font-size: 0.75rem; }
+  .btn-lg { padding: 14px 24px; font-size: 0.9375rem; }
+
+  .section-header { margin-bottom: 36px; }
+  .section-header p { font-size: 0.9375rem; }
+
+  /* Gallery */
+  .gallery-bag-display { height: 160px; padding: 14px; }
+  .gallery-info { padding: 12px 14px; }
+  .gallery-info h3 { font-size: 0.875rem; }
+  .gallery-info p { font-size: 0.8125rem; }
+
+  /* Como funciona */
+  .step-card { padding: 24px 18px; }
+  .step-number { width: 40px; height: 40px; font-size: 1rem; }
+
+  /* Diferenciais */
+  .diff-highlight { padding: 28px 20px; }
+  .diff-number { font-size: 3.75rem; }
+
+  /* Segmentos */
+  .segment-card { padding: 16px 12px; }
+  .segment-icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .segment-card h3 { font-size: 0.875rem; }
+  .segment-card p { font-size: 0.75rem; }
+
+  /* FAQ */
+  .faq-question { font-size: 0.875rem; padding: 14px 16px; }
+  .faq-answer { padding: 0 16px 14px; font-size: 0.875rem; }
+
+  /* Footer */
+  .footer p { font-size: 0.75rem; }
+
+  /* WhatsApp float */
+  .whatsapp-float { bottom: 16px; right: 16px; }
+
+  /* ---- Configurador ---- */
+  .config-left { padding: 20px 16px; }
+  .config-right { padding: 20px 16px; }
+  .bag-preview-wrap { padding: 16px; min-height: 160px; }
+  .bag-preview-photo-wrap { height: 180px; }
+
+  /* Stepper menor */
+  .stepper { margin-bottom: 28px; }
+  .stepper-dot { width: 28px; height: 28px; font-size: 0.75rem; }
+  .stepper-item:not(:last-child)::after { margin: 0 4px; }
+
+  /* Step content */
+  .step-label { font-size: 0.75rem; }
+  .step-title { font-size: 1.25rem; }
+  .step-subtitle { font-size: 0.875rem; margin-bottom: 24px; }
+
+  /* Type cards: 2×2 com imagens mais compactas */
+  .type-cards-4 { gap: 8px; }
+  .type-card-visual { height: 100px !important; }
+  .type-card-info { padding: 10px 12px; }
+  .type-card-name { font-size: 0.875rem; }
+  .type-card-desc { font-size: 0.75rem; }
+
+  /* Tamanho e quantidade */
+  .option-card { padding: 14px 8px; }
+  .option-label { font-size: 0.9375rem; }
+  .option-detail { font-size: 0.75rem; }
+  .qty-card { padding: 16px 8px; }
+  .qty-number { font-size: 1.5rem; }
+  .qty-badge { font-size: 0.625rem; padding: 2px 8px; }
+
+  /* Resumo e prazo */
+  .preview-summary { padding: 16px; }
+  .preview-row { font-size: 0.875rem; }
+  .delivery-box { padding: 12px 14px; }
+
+  /* Botão de ação */
+  .step-nav { flex-direction: column; }
+  .step-nav .btn-ghost { order: 2; }
+  .step-nav .btn-primary { order: 1; width: 100%; }
 }
