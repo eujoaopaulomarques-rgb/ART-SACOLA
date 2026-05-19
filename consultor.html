@@ -6,205 +6,275 @@
   <title>Consultor de Sacolas — Art & Sacolas</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ================================
-       CONSULTOR CONVERSACIONAL
-       ================================ */
+    /* ============================================
+       CONSULTOR — DARK MINIMAL (estilo ChatGPT)
+       ============================================ */
+
+    *, *::before, *::after { box-sizing: border-box; }
 
     body {
-      background: #D9DDE3;
+      background: #0f172a;
+      color: #e8e8e8;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       min-height: 100vh;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .consultor-wrapper {
+    /* BARRA DE PROGRESSO NO TOPO */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0;
       width: 100%;
-      max-width: 480px;
-      min-height: 100vh;
-      min-height: 100dvh;
-      background: #ECF0F4;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 60px rgba(0,0,0,0.18);
+      height: 2px;
+      background: rgba(255,255,255,0.05);
+      z-index: 200;
     }
-
-    /* HEADER */
-    .chat-header {
-      background: var(--primary);
-      padding: 14px 16px 12px;
-      flex-shrink: 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .chat-header-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .chat-back {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 1.375rem;
-      line-height: 1;
-      padding: 2px 4px;
-      flex-shrink: 0;
-    }
-
-    .chat-avatar {
-      width: 42px;
-      height: 42px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .chat-info { flex: 1; min-width: 0; }
-
-    .chat-name {
-      font-weight: 700;
-      color: white;
-      font-size: 0.9375rem;
-      line-height: 1.2;
-    }
-
-    .chat-status {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #25D366;
-      border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
-    .progress-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .progress-track {
-      flex: 1;
-      height: 4px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
+    .top-bar-fill {
       height: 100%;
-      background: var(--accent);
+      background: #3D52C5;
       border-radius: 999px;
-      transition: width 0.5s ease;
+      transition: width 0.6s cubic-bezier(.4,0,.2,1);
       width: 0%;
     }
 
-    .progress-txt {
-      font-size: 0.6875rem;
-      color: rgba(255,255,255,0.55);
-      white-space: nowrap;
+    /* WRAPPER */
+    .consultor-wrapper {
+      width: 100%;
+      max-width: 680px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* CHAT AREA */
+    /* HEADER MINIMAL */
+    .chat-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-back {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      font-size: 1.2rem;
+      line-height: 1;
+      transition: color 0.15s;
+      padding: 4px 2px;
+    }
+    .chat-back:hover { color: rgba(255,255,255,0.7); }
+
+    .chat-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.01em;
+    }
+
+    .step-count {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.22);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ============================================
+       TELA DE BOAS-VINDAS (estilo ChatGPT open)
+       ============================================ */
+    .welcome-screen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 28px 32px;
+      text-align: center;
+    }
+
+    .welcome-screen.hidden { display: none; }
+
+    .welcome-icon {
+      font-size: 2.75rem;
+      margin-bottom: 28px;
+      line-height: 1;
+    }
+
+    .welcome-title {
+      font-size: clamp(1.5rem, 5vw, 2.125rem);
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+      max-width: 440px;
+    }
+
+    .welcome-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.65;
+      max-width: 380px;
+      margin-bottom: 36px;
+    }
+
+    .welcome-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+
+    .welcome-chip {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+
+    .welcome-cta {
+      background: #3D52C5;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 44px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .welcome-cta:hover {
+      background: #2F3C8F;
+      transform: translateY(-1px);
+    }
+
+    .welcome-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ============================================
+       CHAT VIEW
+       ============================================ */
+    .chat-view {
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-view.active { display: flex; }
+
+    /* ÁREA DO CHAT */
     .chat-area {
       flex: 1;
       overflow-y: auto;
-      padding: 18px 12px 12px;
+      padding: 28px 24px 16px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-area::-webkit-scrollbar { width: 3px; }
+    .chat-area::-webkit-scrollbar-track { background: transparent; }
+    .chat-area::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.09);
+      border-radius: 2px;
     }
 
     .date-chip {
       text-align: center;
       font-size: 0.75rem;
-      color: var(--text-light);
-      margin-bottom: 6px;
-      background: rgba(0,0,0,0.06);
-      border-radius: 999px;
-      padding: 3px 12px;
-      width: fit-content;
-      align-self: center;
+      color: rgba(255,255,255,0.13);
+      margin-bottom: 24px;
     }
 
     /* MENSAGENS */
     .message {
       max-width: 88%;
-      padding: 10px 14px;
-      border-radius: 18px;
       font-size: 0.9375rem;
-      line-height: 1.5;
-      animation: msgIn 0.25s ease;
+      line-height: 1.65;
+      animation: msgIn 0.3s cubic-bezier(.4,0,.2,1);
       word-break: break-word;
+      margin-bottom: 6px;
     }
 
     @keyframes msgIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Bot: texto simples, sem bolha */
     .message.bot {
-      background: var(--primary);
-      color: white;
-      border-bottom-left-radius: 4px;
+      color: #dcdcdc;
+      background: transparent;
       align-self: flex-start;
+      padding: 0;
+      margin-bottom: 14px;
     }
 
+    /* Usuário: bolha discreta à direita */
     .message.user {
-      background: white;
-      color: var(--text-primary);
-      border-bottom-right-radius: 4px;
+      background: #1e2a3a;
+      color: #e8e8e8;
+      border-radius: 18px 18px 4px 18px;
+      padding: 10px 16px;
       align-self: flex-end;
-      border: 1px solid var(--border);
-      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(61,82,197,0.15);
+      margin-bottom: 20px;
+      margin-top: 2px;
     }
 
+    /* Dica: borda laranja sutil */
     .message.tip {
-      background: #FFF9F0;
-      color: var(--text-primary);
-      border-left: 3px solid var(--accent);
-      border-radius: 8px !important;
+      background: rgba(61,82,197,0.06);
+      border-left: 2px solid rgba(61,82,197,0.45);
+      border-radius: 4px;
+      padding: 10px 14px;
+      color: rgba(255,255,255,0.52);
       font-size: 0.875rem;
       align-self: flex-start;
       max-width: 92%;
-      padding: 9px 12px;
+      margin-bottom: 12px;
     }
 
     /* TYPING */
     .typing-indicator {
       display: flex;
-      gap: 4px;
-      padding: 12px 16px;
-      background: var(--primary);
-      border-radius: 18px;
-      border-bottom-left-radius: 4px;
+      gap: 5px;
+      padding: 4px 0 8px;
       width: fit-content;
       align-self: flex-start;
       animation: msgIn 0.2s ease;
     }
 
     .typing-dot {
-      width: 7px;
-      height: 7px;
-      background: rgba(255,255,255,0.55);
+      width: 6px;
+      height: 6px;
+      background: rgba(255,255,255,0.18);
       border-radius: 50%;
       animation: typingBounce 1.2s infinite;
     }
@@ -212,8 +282,8 @@
     .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
     @keyframes typingBounce {
-      0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
-      40%           { transform: translateY(-5px); opacity: 1; }
+      0%,80%,100% { transform: translateY(0); opacity: 0.3; }
+      40%          { transform: translateY(-5px); opacity: 1; }
     }
 
     /* CARD DE RECOMENDAÇÃO */
@@ -223,140 +293,131 @@
       background: transparent;
       align-self: flex-start;
       width: 100%;
+      margin-bottom: 14px;
     }
 
     .rec-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
+      background: #1a2437;
+      border: 1px solid rgba(61,82,197,0.2);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
     }
 
     .rec-top {
-      padding: 16px 18px 12px;
-      border-bottom: 1px solid var(--border);
+      padding: 16px 20px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .rec-badge {
       font-size: 0.6875rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
+      letter-spacing: 0.08em;
+      color: #3D52C5;
       margin-bottom: 4px;
     }
 
     .rec-title {
       font-size: 1.125rem;
-      font-weight: 800;
-      color: var(--text-primary);
+      font-weight: 700;
+      color: #f0f0f0;
     }
 
     .rec-desc {
-      padding: 12px 18px;
+      padding: 14px 20px;
       font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      border-bottom: 1px solid var(--border);
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .rec-specs {
-      padding: 12px 18px;
+      padding: 14px 20px;
       display: flex;
       flex-direction: column;
-      gap: 7px;
-      border-bottom: 1px solid var(--border);
+      gap: 9px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .spec-row {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       font-size: 0.8125rem;
     }
 
     .spec-key {
-      color: var(--text-light);
-      min-width: 82px;
+      color: rgba(255,255,255,0.28);
+      min-width: 88px;
       flex-shrink: 0;
-      font-weight: 500;
     }
 
     .spec-val {
-      color: var(--text-primary);
-      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
     }
 
     .rec-prazo {
-      padding: 10px 18px;
-      background: #FFF7ED;
+      padding: 12px 20px;
       font-size: 0.8125rem;
-      color: #9A3412;
+      color: rgba(61,82,197,0.85);
+      background: rgba(61,82,197,0.05);
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
     }
 
-    /* OPTIONS AREA */
+    /* ÁREA DE OPÇÕES (fundo) */
     .options-area {
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 10px 10px 14px;
+      background: #111827;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 16px 18px;
       flex-shrink: 0;
+    }
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .options-area {
+        padding-bottom: calc(18px + env(safe-area-inset-bottom));
+      }
     }
 
     .opts-grid {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
     }
 
+    /* BOTÕES DE OPÇÃO */
     .opt-btn {
       display: flex;
       align-items: center;
-      padding: 11px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      background: white;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
       cursor: pointer;
-      font-size: 0.875rem;
-      color: var(--text-primary);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
       text-align: left;
-      transition: var(--transition);
+      transition: all 0.15s ease;
       font-family: var(--font);
       width: 100%;
       line-height: 1.4;
-      gap: 0;
     }
 
     .opt-btn:hover, .opt-btn:active {
-      border-color: var(--primary);
-      background: #EEF2FF;
-      color: var(--primary);
+      border-color: rgba(61,82,197,0.5);
+      background: rgba(61,82,197,0.06);
+      color: #f0f0f0;
     }
 
-    .opt-btn.start-btn {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 15px;
-      border-radius: var(--radius);
-    }
-
-    .opt-btn.start-btn:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
-      color: white;
-    }
-
-    /* ACTION AREA (fim da conversa) */
+    /* ÁREA DE AÇÃO (final) */
     .action-area {
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 10px 10px 16px;
+      background: #111827;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 16px 20px;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -371,17 +432,16 @@
       background: #25D366;
       color: white;
       border: none;
-      border-radius: var(--radius);
+      border-radius: 12px;
       padding: 15px;
       font-size: 1rem;
       font-weight: 700;
       font-family: var(--font);
       cursor: pointer;
       text-decoration: none;
-      transition: var(--transition);
+      transition: background 0.15s;
       line-height: 1;
     }
-
     .btn-wa-final:hover { background: #1ebe5a; }
 
     .btn-restart {
@@ -390,72 +450,60 @@
       justify-content: center;
       gap: 6px;
       background: transparent;
-      color: var(--text-secondary);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
+      color: rgba(255,255,255,0.28);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
       padding: 11px;
       font-size: 0.875rem;
       font-family: var(--font);
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.15s;
     }
-
     .btn-restart:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: var(--light);
-    }
-
-    /* RESPONSIVE DESKTOP */
-    @media (min-width: 480px) {
-      body { padding: 24px 0; align-items: flex-start; }
-      .consultor-wrapper {
-        min-height: auto;
-        height: calc(100vh - 48px);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-      }
+      border-color: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.04);
     }
   </style>
 </head>
 <body>
 
+  <!-- BARRA DE PROGRESSO TOPO -->
+  <div class="top-bar">
+    <div class="top-bar-fill" id="top-bar-fill"></div>
+  </div>
+
   <div class="consultor-wrapper">
 
-    <!-- CABEÇALHO -->
+    <!-- HEADER MINIMAL -->
     <div class="chat-header">
-      <div class="chat-header-row">
+      <div class="chat-header-left">
         <a href="index.html" class="chat-back" title="Voltar">←</a>
-        <div class="chat-avatar">🎒</div>
-        <div class="chat-info">
-          <div class="chat-name">Consultor Art & Sacolas</div>
-          <div class="chat-status">
-            <span class="status-dot"></span>
-            Online agora · 26 anos de experiência
-          </div>
-        </div>
+        <span class="chat-name">Art &amp; Sacolas</span>
       </div>
-      <div class="progress-row">
-        <div class="progress-track">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="progress-txt" id="progress-txt">0 de 9</div>
-      </div>
+      <span class="step-count" id="step-count"></span>
     </div>
 
-    <!-- ÁREA DO CHAT -->
-    <div class="chat-area" id="chat-area">
-      <div class="date-chip">Hoje</div>
-      <div class="message bot">Olá! Seja bem-vindo à Art &amp; Sacolas 👋</div>
-      <div class="message bot">Sou o consultor digital da empresa. Vou te fazer <strong>9 perguntas rápidas</strong> para encontrar a sacola ideal para o seu negócio — e já te explicar tudo o que você precisa saber.</div>
-      <div class="message bot">No final você recebe uma recomendação personalizada e um resumo completo pronto para o WhatsApp.</div>
+    <!-- TELA DE BOAS-VINDAS -->
+    <div class="welcome-screen" id="welcome-screen">
+      <div class="welcome-icon">🎒</div>
+      <h1 class="welcome-title">Qual sacola é ideal para o seu negócio?</h1>
+      <p class="welcome-subtitle">Responda 9 perguntas rápidas e receba uma recomendação personalizada com resumo completo para o WhatsApp.</p>
+      <div class="welcome-chips">
+        <span class="welcome-chip">⚡ 3 minutos</span>
+        <span class="welcome-chip">🎯 Recomendação personalizada</span>
+        <span class="welcome-chip">💬 Resumo para WhatsApp</span>
+      </div>
+      <button class="welcome-cta" onclick="iniciarConsultor()">Começar →</button>
+      <p class="welcome-note">Sem cadastro. Sem compromisso.</p>
     </div>
 
-    <!-- ÁREA DE OPÇÕES -->
-    <div class="options-area" id="options-area">
-      <button class="opt-btn start-btn" onclick="startConsultor()">
-        Vamos começar →
-      </button>
+    <!-- CHAT VIEW -->
+    <div class="chat-view" id="chat-view">
+      <div class="chat-area" id="chat-area">
+        <div class="date-chip">Hoje</div>
+      </div>
+      <div class="options-area" id="options-area"></div>
     </div>
 
   </div>
@@ -470,9 +518,9 @@
   const PERGUNTAS = [
     {
       id: 'negocio',
-      texto: 'Ótimo! Primeira pergunta: que tipo de negócio você tem?',
+      texto: 'Que tipo de negócio você tem?',
       opcoes: [
-        { label: '👗  Moda e vestuário (roupas, blusas, calças...)', val: 'moda' },
+        { label: '👗  Moda e vestuário', val: 'moda' },
         { label: '👢  Calçados e bolsas', val: 'calcados' },
         { label: '💄  Beleza, cosméticos e perfumaria', val: 'beleza' },
         { label: '💊  Farmácia ou produtos de saúde', val: 'farmacia' },
@@ -503,7 +551,7 @@
     },
     {
       id: 'estetica',
-      texto: 'Qual estilo visual combina mais com a identidade da sua loja?',
+      texto: 'Qual estilo visual combina com a identidade da sua loja?',
       opcoes: [
         { label: '🎯  Moderno e clean', val: 'moderno' },
         { label: '👑  Elegante e clássico', val: 'elegante' },
@@ -517,14 +565,14 @@
       opcoes: [
         { label: '💪  Resistência — não pode rasgar com o peso do produto', val: 'resistencia' },
         { label: '😍  Visual bonito — precisa impressionar o cliente', val: 'visual' },
-        { label: '🌱  Sustentabilidade — prefiro material ecológico e reciclável', val: 'sustentavel' },
-        { label: '💵  Menor custo — preciso do melhor preço por unidade', val: 'preco' }
+        { label: '🌱  Sustentabilidade — prefiro material ecológico', val: 'sustentavel' },
+        { label: '💵  Menor custo por unidade', val: 'preco' }
       ]
     },
     {
       id: 'cores',
       texto: 'A identidade visual da sua loja tem quantas cores?',
-      dica: '💡 O número de cores afeta diretamente o custo de impressão. Uma cor sai mais barato — cada cor adicional tem um pequeno acréscimo no valor final.',
+      dica: '💡 O número de cores afeta o custo de impressão. Uma cor sai mais barato — cada cor adicional tem um pequeno acréscimo.',
       opcoes: [
         { label: '1️⃣  Uma cor', val: '1' },
         { label: '2️⃣  Duas cores', val: '2' },
@@ -534,12 +582,12 @@
     },
     {
       id: 'quantidade',
-      texto: 'Quantas sacolas você acha que vai precisar?',
+      texto: 'Quantas sacolas você vai precisar?',
       dica: '💡 O pedido mínimo é de <strong>250 unidades</strong>. Quanto maior a quantidade, melhor o preço por unidade.',
       opcoes: [
         { label: '📦  250 unidades — vou começar testando', val: 250 },
         { label: '📦📦  500 unidades — volume regular do mês', val: 500 },
-        { label: '📦📦📦  1.000 unidades ou mais — preciso de bastante', val: 1000 }
+        { label: '📦📦📦  1.000 unidades ou mais', val: 1000 }
       ]
     },
     {
@@ -613,12 +661,19 @@
   const R = {};
 
   // =================================================
-  //   MOTOR DA CONVERSA
+  //   TRANSIÇÃO WELCOME → CHAT
   // =================================================
 
-  function startConsultor() {
+  function iniciarConsultor() {
+    document.getElementById('welcome-screen').classList.add('hidden');
+    const chatView = document.getElementById('chat-view');
+    chatView.classList.add('active');
     proximaPergunta();
   }
+
+  // =================================================
+  //   MOTOR DA CONVERSA
+  // =================================================
 
   function proximaPergunta() {
     qi++;
@@ -651,7 +706,6 @@
   function escolher(val, label) {
     limparOpcoes();
 
-    // Mensagem do usuário: remove emoji inicial e exibe resposta limpa
     const limpo = label.replace(/^[^\w\dÀ-ú\d]+\s*/, '').trim();
     addUser(limpo);
 
@@ -667,7 +721,6 @@
   function calcularScore() {
     const s = { camiseta: 0, vazada: 0, fita: 0, kraft: 0 };
 
-    // Negócio
     const negScores = {
       moda:        [4, 0, 0, 0],
       calcados:    [4, 0, 0, 0],
@@ -681,23 +734,19 @@
     const keys = ['camiseta', 'vazada', 'fita', 'kraft'];
     (negScores[R.negocio] || [1,1,1,1]).forEach((v, i) => s[keys[i]] += v);
 
-    // Produto
     if (R.produto === 'pesado') { s.camiseta += 3; s.vazada += 1; }
     if (R.produto === 'medio')  { s.camiseta += 2; }
     if (R.produto === 'leve')   { s.fita += 1; s.kraft += 1; }
 
-    // Posicionamento
     if (R.posicionamento === 'premium')       { s.fita += 3; s.kraft += 2; }
     if (R.posicionamento === 'popular')       { s.vazada += 3; s.camiseta += 1; }
     if (R.posicionamento === 'intermediario') { s.camiseta += 2; }
 
-    // Estética
     if (R.estetica === 'elegante') s.fita += 3;
     if (R.estetica === 'rustico')  s.kraft += 4;
     if (R.estetica === 'simples')  { s.vazada += 2; s.camiseta += 1; }
     if (R.estetica === 'moderno')  { s.camiseta += 1; s.fita += 1; }
 
-    // Prioridade
     if (R.prioridade === 'resistencia') { s.camiseta += 3; s.vazada += 1; }
     if (R.prioridade === 'visual')      { s.fita += 2; s.kraft += 1; }
     if (R.prioridade === 'sustentavel') s.kraft += 5;
@@ -749,7 +798,7 @@
     div.className = 'message rec-wrap';
     div.innerHTML = `
       <div class="rec-card">
-        <div class="rec-top" style="border-top: 4px solid ${rec.cor}">
+        <div class="rec-top" style="border-top: 3px solid ${rec.cor}">
           <div class="rec-badge">✅ Recomendação personalizada</div>
           <div class="rec-title">${rec.nome} ${rec.emoji}</div>
         </div>
@@ -780,9 +829,7 @@
             <span class="spec-val">${logoTxt}</span>
           </div>` : ''}
         </div>
-        <div class="rec-prazo">
-          🗓️ Prazo médio: ${prazoTxt}
-        </div>
+        <div class="rec-prazo">🗓️ Prazo médio: ${prazoTxt}</div>
       </div>
     `;
 
@@ -799,9 +846,7 @@
       <a href="${waLink}" target="_blank" class="btn-wa-final">
         💬 Quero esse orçamento no WhatsApp
       </a>
-      <button class="btn-restart" onclick="reiniciar()">
-        ↺ Refazer a consulta
-      </button>
+      <button class="btn-restart" onclick="reiniciar()">↺ Refazer a consulta</button>
     `;
     rolarChat();
   }
@@ -847,16 +892,14 @@
     qi = -1;
     Object.keys(R).forEach(k => delete R[k]);
 
-    document.getElementById('chat-area').innerHTML = `
-      <div class="date-chip">Hoje</div>
-      <div class="message bot">Olá! Seja bem-vindo à Art &amp; Sacolas 👋</div>
-      <div class="message bot">Sou o consultor digital da empresa. Vou te fazer <strong>9 perguntas rápidas</strong> para encontrar a sacola ideal para o seu negócio — e já te explicar tudo o que você precisa saber.</div>
-      <div class="message bot">No final você recebe uma recomendação personalizada e um resumo completo pronto para o WhatsApp.</div>
-    `;
+    document.getElementById('chat-view').classList.remove('active');
 
-    const area = document.getElementById('options-area');
-    area.className = 'options-area';
-    area.innerHTML = `<button class="opt-btn start-btn" onclick="startConsultor()">Vamos começar novamente →</button>`;
+    const welcome = document.getElementById('welcome-screen');
+    welcome.classList.remove('hidden');
+
+    document.getElementById('chat-area').innerHTML = '<div class="date-chip">Hoje</div>';
+    document.getElementById('options-area').className = 'options-area';
+    document.getElementById('options-area').innerHTML = '';
 
     atualizarProgresso(0, 0);
   }
@@ -931,8 +974,9 @@
   }
 
   function atualizarProgresso(pct, atual) {
-    document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('progress-txt').textContent = atual + ' de ' + PERGUNTAS.length;
+    document.getElementById('top-bar-fill').style.width = pct + '%';
+    const el = document.getElementById('step-count');
+    el.textContent = atual > 0 ? atual + ' / ' + PERGUNTAS.length : '';
   }
   </script>
 
